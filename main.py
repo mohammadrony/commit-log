@@ -1,8 +1,10 @@
+import os
 import requests
 from requests.exceptions import RequestException
 
 def main():
-  api_url = "https://api.github.com/repos/dsinnovators/js-essentials/commits"
+  repository = os.getenv("GITHUB_REPOSITORY", "dsinnovators/js-essentials")
+  api_url = f"https://api.github.com/repos/{repository}/commits"
 
   try:
     response = requests.get(api_url)
@@ -17,7 +19,7 @@ def main():
       author_name = commit['commit']['author']['name']
       message = commit['commit']['message']
       print(f"{author_name}: {message}")
-          
+
   except RequestException as e:
     print(f"Network error occurred: {e}")
 
