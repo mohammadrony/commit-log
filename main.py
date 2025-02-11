@@ -3,7 +3,7 @@ import requests
 from requests.exceptions import RequestException
 
 def main():
-  repository = os.getenv("GITHUB_REPOSITORY", "dsinnovators/js-essentials")
+  repository = "dsinnovators/js-essentials"
   api_url = f"https://api.github.com/repos/{repository}/commits"
 
   try:
