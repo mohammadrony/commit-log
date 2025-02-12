@@ -1,13 +1,19 @@
 # Git commit log
 
-Run application
-
 ```sh
-docker run --name commit-log mohammadrony/commit-log
+docker build . -t mohammadrony/commit-log
 ```
 
-Check commit log
+Docker application
 
 ```sh
-docker logs commit-log
+docker run --rm --name commit-log mohammadrony/commit-log
+```
+
+Custom repository commit
+
+```sh
+docker run --rm --name commit-log \
+  -e GITHUB_REPOSITORY="dsinnovators/js-essentials" \
+  mohammadrony/commit-log
 ```
